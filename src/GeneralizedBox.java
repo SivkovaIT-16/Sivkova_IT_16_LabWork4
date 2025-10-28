@@ -12,6 +12,7 @@ public class GeneralizedBox<T> {
     public void setObj(T obj) {
         busyBox();
         this.obj = obj;
+        System.out.println("Значение " + obj + " добавлено в коробку");
     }
 
     //Взять объект из коробки
@@ -30,16 +31,13 @@ public class GeneralizedBox<T> {
 
     //С параметрами
     public GeneralizedBox(T obj) {
-        if (obj == null) {
-            this.obj = null;
-        }
         this.obj = obj;
     }
 
     //Копирования
     public GeneralizedBox(GeneralizedBox<T> generalizedBox) {
         if (generalizedBox == null) {
-            this.obj = null;
+            throw new IllegalArgumentException("Коробка для копирования не может быть null");
         }
         this.obj = generalizedBox.obj;
     }

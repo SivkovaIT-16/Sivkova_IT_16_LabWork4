@@ -12,7 +12,6 @@ public class GeneralizedBox<T> {
     public void setObj(T obj) {
         busyBox();
         this.obj = obj;
-        System.out.println("Значение " + obj + " добавлено в коробку");
     }
 
     //Взять объект из коробки

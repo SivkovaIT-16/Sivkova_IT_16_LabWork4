@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class Main {
+    private static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         int n;
         do {
             System.out.print("Введите номер задачи (для завершения программы введите 0): ");
@@ -14,26 +14,41 @@ public class Main {
                 case 1: {
                     //1.1
                     GeneralizedBox<Integer> box1 = new GeneralizedBox<>();
-                    box1.setObj(3);
-                    System.out.println(box1);
-                    Box(box1);
-                    System.out.println(box1);
-                    System.out.println();
-
-                    GeneralizedBox<String> box2 = new GeneralizedBox<>("A");
-                    try {
-                        box2.setObj("B");
-                    } catch (Exception e) {
-                        System.out.println("Ошибка: " + e.getMessage());
-                    }
-                    try {
-                        System.out.println(box2);
-                        System.out.println("Извлекаем значение: " + box2.take());
-                        System.out.println(box2);
-                        System.out.println("Извлекаем значение: " + box2.take());
-                    } catch (Exception e) {
-                        System.out.println("Ошибка: " + e.getMessage());
-                    }
+                    System.out.println("Создана коробка box1 для целых чисел.");
+                    int m;
+                    do {
+                        System.out.println("Введите номер дейсвия:\n " +
+                                "0.Завершить действия с коробкой.\n " +
+                                "1.Положить объект в коробку.\n " +
+                                "2.Взять объект из коробки.\n " +
+                                "3.Посмотреть содержимое коробки.");
+                        m = scanner.nextInt();
+                        scanner.nextLine();
+                        switch (m) {
+                            case 0:
+                                System.out.println("Работа с коробкой box 1 завершена.");
+                                break;
+                            case 1:
+                                try {
+                                    setBox(box1);
+                                } catch (Exception e) {
+                                    System.out.println("Ошибка: " + e.getMessage());
+                                }
+                                break;
+                            case 2:
+                                try {
+                                takeBox(box1);
+                                } catch (Exception e) {
+                                    System.out.println("Ошибка: " + e.getMessage());
+                                }
+                                break;
+                            case 3:
+                                System.out.println(box1);
+                                break;
+                            default:
+                                System.out.println("Неверный номер действия!");
+                        }
+                    } while (m != 0);
                     break;
                 }
                 case 2: {
@@ -50,8 +65,26 @@ public class Main {
             }
         } while (n != 0);
     }
-    private static void Box(GeneralizedBox <Integer> box) {
+
+    private static void setBox(GeneralizedBox <Integer> box) {
+        int value;
+        while (true) {
+            System.out.print("Введите целое число, которое необходимо добавить в box1: ");
+            String str = scanner.nextLine();
+            if (!Validator.valIsInt(str)) {
+                System.out.println("Ошибка: введите корректное целое число!");
+            } else {
+                value = Integer.parseInt(str);
+                break;
+            }
+        }
+        box.setObj(value);
+        System.out.println("Число " + value + " добавлено в коробку box1.");
+    }
+
+    private static void takeBox(GeneralizedBox <Integer> box) {
         Integer value= box.take();
         System.out.println("Из коробки извлекли значение: " + value);
     }
+
 }

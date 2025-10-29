@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     private static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
         int n;
         do {
@@ -37,7 +38,7 @@ public class Main {
                                 break;
                             case 2:
                                 try {
-                                takeBox(box1);
+                                    takeBox(box1);
                                 } catch (Exception e) {
                                     System.out.println("Ошибка: " + e.getMessage());
                                 }
@@ -53,20 +54,69 @@ public class Main {
                 }
                 case 2: {
                     //1.3
-                    ComparableNumber intVal = new ComparableNumber(10);      // Integer
-                    ComparableNumber doubleVal = new ComparableNumber(3.14); // Double
+                    int m;
+                    do {
+                        System.out.println("Введите номер дейсвия:\n " +
+                                "0.Завершить программу для сравнения.\n " +
+                                "1.Сравнить два числа.\n " +
+                                "2.Сравнить две строки.");
+                        m = scanner.nextInt();
+                        scanner.nextLine();
+                        switch (m) {
+                            case 0:
+                                System.out.println("Работа программы для сравнения завершена.");
+                                break;
+                            case 1:
+                                ComparableNumber val1, val2;
+                                while (true) {
+                                    System.out.print("Введите первое число: ");
+                                    String str1 = scanner.nextLine();
+                                    if (!Validator.valIsNumber(str1)) {
+                                        System.out.println("Ошибка: введите корректное число!");
+                                    } else {
+                                        val1 = new ComparableNumber(parseNumber(str1));
+                                        break;
+                                    }
+                                }
+                                while (true) {
+                                    System.out.print("Введите второе число: ");
+                                    String str2 = scanner.nextLine();
+                                    if (!Validator.valIsNumber(str2)) {
+                                        System.out.println("Ошибка: введите корректное число!");
+                                    } else {
+                                        val2 = new ComparableNumber(parseNumber(str2));
+                                        break;
+                                    }
+                                }
+                                int resNum = val1.compare(val2.getValue());
+                                System.out.println(val1.getValue() + " " + resultCompare(resNum) + " " + val2.getValue());
+                                break;
+                            case 2:
+                                System.out.print("Введите первую строку: ");
+                                ComparableString str1 = new ComparableString(scanner.nextLine());
 
-                    System.out.println(intVal.compare(5.76));
-                    System.out.println(intVal.compare(100));
-                    System.out.println(doubleVal.compare(0.123));
-                    System.out.println(doubleVal.compare(5));
-                    System.out.println(intVal.compare(10.0));
+                                System.out.print("Введите вторую строку: ");
+                                ComparableString str2 = new ComparableString(scanner.nextLine());
+
+                                int resStr = str1.compare(str2.getStr());
+                                System.out.println(str1.getStr() + " " + resultCompare(resStr) + " " + str2.getStr());
+                                break;
+                            default:
+                                System.out.println("Неверный номер действия!");
+                                break;
+                        }
+                    } while (m != 0);
+                    break;
+                }
+                default: {
+                    System.out.println("Некорректный номер задачи.");
+                    break;
                 }
             }
         } while (n != 0);
     }
 
-    private static void setBox(GeneralizedBox <Integer> box) {
+    private static void setBox(GeneralizedBox<Integer> box) {
         int value;
         while (true) {
             System.out.print("Введите целое число, которое необходимо добавить в box1: ");
@@ -82,9 +132,29 @@ public class Main {
         System.out.println("Число " + value + " добавлено в коробку box1.");
     }
 
-    private static void takeBox(GeneralizedBox <Integer> box) {
-        Integer value= box.take();
+    private static void takeBox(GeneralizedBox<Integer> box) {
+        Integer value = box.take();
         System.out.println("Из коробки извлекли значение: " + value);
     }
 
+    private static Number parseNumber(String str) {
+        if (Validator.valIsDouble(str)) {
+            return Double.parseDouble(str);
+        } else {
+            return Integer.parseInt(str);
+        }
+    }
+
+    private static String resultCompare(int result) {
+        switch (result) {
+            case 1:
+                return ">";
+            case -1:
+                return "<";
+            case 0:
+                return "=";
+            default:
+                return " ";
+        }
+    }
 }

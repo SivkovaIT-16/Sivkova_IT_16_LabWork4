@@ -1,6 +1,14 @@
 public class ComparableNumber implements MyComparable <Number> {
     private Number value;
 
+    public Number getValue() {
+        return value;
+    }
+
+    public void setValue(Number value) {
+        this.value = value;
+    }
+
     public ComparableNumber(Number value) {
         this.value = value;
     }
@@ -17,5 +25,13 @@ public class ComparableNumber implements MyComparable <Number> {
         } else {
             return 0;
         }
+    }
+
+    @Override
+    public String toString() {
+        if (value == null) {
+            return "Число = null";
+        }
+        return "Число = " + value;
     }
 }

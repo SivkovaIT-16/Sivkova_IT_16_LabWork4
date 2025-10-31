@@ -1,3 +1,5 @@
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -100,6 +102,68 @@ public class Main {
 
                                 int resStr = str1.compare(str2.getStr());
                                 System.out.println(str1.getStr() + " " + resultCompare(resStr) + " " + str2.getStr());
+                                break;
+                            default:
+                                System.out.println("Неверный номер действия!");
+                                break;
+                        }
+                    } while (m != 0);
+                    break;
+                }
+                case 3: {
+                    //2.2
+                    List<GeneralizedBox<? extends Number>> boxes = new ArrayList<>();
+                    int m;
+                    do {
+                        System.out.println("Введите номер дейсвия:\n " +
+                                "0.Завершить программу поиска максимума.\n " +
+                                "1.Просмотр текущих коробок.\n " +
+                                "2.Создать коробку с числом.\n " +
+                                "3.Найти максимальное значение.");
+                        m = scanner.nextInt();
+                        scanner.nextLine();
+                        switch (m) {
+                            case 0:
+                                System.out.println("Работа программы поиска максимума завершена.");
+                                break;
+                            case 1:
+                                if (boxes.isEmpty()) {
+                                    System.out.println("Нет добавленных коробок!");
+                                    continue;
+                                }
+                                for (int i = 0; i < boxes.size(); i++) {
+                                    System.out.println((i + 1) + ". " + boxes.get(i));
+                                }
+                                break;
+                            case 2:
+                                while(true) {
+                                    System.out.print("Введите число, которое необходимо добавить в созданную коробку: ");
+                                    String str = scanner.nextLine();
+                                    if (!Validator.valIsNumber(str)) {
+                                        System.out.println("Ошибка: введите корректное число!");
+                                    } else {
+                                        if (Validator.valIsInt(str)) {
+                                            GeneralizedBox<Integer> box = new GeneralizedBox(parseNumber(str));
+                                            boxes.add(box);
+                                        } else if (Validator.valIsDouble(str)) {
+                                            GeneralizedBox<Double> box = new GeneralizedBox(parseNumber(str));
+                                            boxes.add(box);
+                                        }
+                                        System.out.println("Коробка со значением " + parseNumber(str) + " создана.");
+                                        break;
+                                    }
+                                }
+                                break;
+                            case 3:
+                                if (boxes.isEmpty()) {
+                                    System.out.println("Нет коробок для поиска максимума!");
+                                }
+                                try {
+                                    double max = Maximum.findMax(boxes);
+                                    System.out.println("Максимальное значение: " + max);
+                                } catch (Exception e) {
+                                    System.out.println("Ошибка: " + e.getMessage());
+                                }
                                 break;
                             default:
                                 System.out.println("Неверный номер действия!");

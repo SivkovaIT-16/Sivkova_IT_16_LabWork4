@@ -1,13 +1,15 @@
+import java.util.List;
+
 public class Maximum {
-    static public double findMax(GeneralizedBox <? extends Number>[] boxes) {
-        if (boxes == null || boxes.length == 0) {
+    public static double findMax(List<GeneralizedBox <? extends Number>> boxes) {
+        if (boxes == null || boxes.isEmpty()) {
             throw new IllegalArgumentException("Массив коробок пустой.");
         }
-        double max = 0;
+        double max = -Double.MAX_VALUE;
         boolean find = false;
-        for (GeneralizedBox <? extends Number> box : boxes) {
-            if (!box.isEmpty()) {
-                Number val = box.getObj();
+        for (int i = 0; i < boxes.size(); i++)  {
+            if (!boxes.get(i).isEmpty()) {
+                Number val = boxes.get(i).getObj();
                 if (!find) {
                     max = val.doubleValue();
                     find = true;

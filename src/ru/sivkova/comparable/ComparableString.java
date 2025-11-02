@@ -1,4 +1,6 @@
-public class ComparableString implements MyComparable <String>{
+package ru.sivkova.comparable;
+
+public class ComparableString implements MyComparable<String> {
     private String str;
 
     public String getStr() {

@@ -1,30 +1,32 @@
+package ru.sivkova.function;
+
 import java.util.List;
 import java.util.ArrayList;
 
-public class IntegerMas3 implements Function <int[], Integer> {
+public class IntegerMas3_1 implements Function<int[], Integer> {
     private List<int[]> input;
-    private List<Integer> result;
+    private List<Integer> resultFunction;
 
     public List<int[]> getInput() {
         return input;
     }
 
-    public List<Integer> getResult() {
-        return result;
+    public List<Integer> getResultFunction() {
+        return resultFunction;
     }
 
     public void setInput(List<int[]> input) {
         this.input = input;
     }
 
-    public IntegerMas3() {
+    public IntegerMas3_1() {
         this.input = new ArrayList<>();
-        this.result = new ArrayList<>();
+        this.resultFunction = new ArrayList<>();
     }
 
-    public IntegerMas3(List<int[]> input) {
+    public IntegerMas3_1(List<int[]> input) {
         this.input = input;
-        this.result = new ArrayList<>();
+        this.resultFunction = new ArrayList<>();
     }
 
     @Override
@@ -39,13 +41,13 @@ public class IntegerMas3 implements Function <int[], Integer> {
             str += "\n";
             i++;
         }
-        str += "Максимальные значения каждого массива: " + result;
+        str += "Максимальные значения каждого массива: " + resultFunction;
         return str;
     }
 
-    public void transformation() {
+    public void function() {
         for (int[] mas : this.input) {
-            this.result.add(apply(mas));
+            this.resultFunction.add(apply(mas));
         }
     }
 

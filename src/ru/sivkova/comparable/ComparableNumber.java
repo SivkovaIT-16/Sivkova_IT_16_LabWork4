@@ -1,4 +1,6 @@
-public class ComparableNumber implements MyComparable <Number> {
+package ru.sivkova.comparable;
+
+public class ComparableNumber implements MyComparable<Number> {
     private Number value;
 
     public Number getValue() {

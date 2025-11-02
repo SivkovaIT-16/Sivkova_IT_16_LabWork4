@@ -1,3 +1,6 @@
+import ru.sivkova.comparable.*;
+import ru.sivkova.filter.*;
+import ru.sivkova.function.*;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -197,22 +200,63 @@ public class Main {
                             case 1:
                                 List<String> input1 = new ArrayList<>();
                                 inputString(input1);
-                                String3 function1 = new String3(input1);
-                                function1.transformation();
+                                String3_1 function1 = new String3_1(input1);
+                                function1.function();
                                 System.out.println(function1);
                                 break;
                             case 2:
                                 List<Number> input2 = new ArrayList<>();
                                 inputNumber(input2);
-                                Number3 function2 = new Number3(input2);
-                                function2.transformation();
+                                Number3_1 function2 = new Number3_1(input2);
+                                function2.function();
                                 System.out.println(function2);
                                 break;
                             case 3:
                                 List<int[]> input3 = new ArrayList<>();
                                 inputIntegerMas(input3);
-                                IntegerMas3 function3 = new IntegerMas3(input3);
-                                function3.transformation();
+                                IntegerMas3_1 function3 = new IntegerMas3_1(input3);
+                                function3.function();
+                                System.out.println(function3);
+                                break;
+                            default:
+                                System.out.println("Неверный номер действия!");
+                                break;
+                        }
+                    } while (m != 0);
+                }
+                case 5: {
+                    int m;
+                    do {
+                        System.out.println("Введите номер дейсвия:\n " +
+                                "0.Завершить программу поиска максимума.\n " +
+                                "1.Отфильтровать строки.\n " +
+                                "2.Отфильтровать числа.\n " +
+                                "3.Отфильтровать массивы.");
+                        m = scanner.nextInt();
+                        scanner.nextLine();
+                        switch (m) {
+                            case 0:
+                                System.out.println("Работа программы поиска максимума завершена.");
+                                break;
+                            case 1:
+                                List<String> input1 = new ArrayList<>();
+                                inputString(input1);
+                                String3_2 function1 = new String3_2(input1);
+                                function1.filter();
+                                System.out.println(function1);
+                                break;
+                            case 2:
+                                List<Number> input2 = new ArrayList<>();
+                                inputNumber(input2);
+                                Number3_2 function2 = new Number3_2(input2);
+                                function2.filter();
+                                System.out.println(function2);
+                                break;
+                            case 3:
+                                List<int[]> input3 = new ArrayList<>();
+                                inputIntegerMas(input3);
+                                IntegerMas3_2 function3 = new IntegerMas3_2(input3);
+                                function3.filter();
                                 System.out.println(function3);
                                 break;
                             default:

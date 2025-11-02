@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.ArrayList;
+
 import static java.lang.Math.abs;
 
 public class Number3 implements Function <Number, Number> {

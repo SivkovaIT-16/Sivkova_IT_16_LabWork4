@@ -8,7 +8,15 @@ public class Main {
     public static void main(String[] args) {
         int n;
         do {
-            System.out.print("Введите номер задачи (для завершения программы введите 0): ");
+            System.out.println("Введите номер задачи:\n" +
+                    "0.Завершить программу.\n" +
+                    "1.Обобщённая коробка.\n" +
+                    "2.Сравнимое.\n" +
+                    "3.Поиск максимума.\n" +
+                    "4.Функция.\n" +
+                    "5.Фильтр.\n" +
+                    "6.Сокращение.\n" +
+                    "7.Коллекционирование.");
             n = scanner.nextInt();
             switch (n) {
                 case 0:
@@ -172,6 +180,47 @@ public class Main {
                     } while (m != 0);
                     break;
                 }
+                case 4: {
+                    int m;
+                    do {
+                        System.out.println("Введите номер дейсвия:\n " +
+                                "0.Завершить программу поиска максимума.\n " +
+                                "1.Найти длины строк.\n " +
+                                "2.Преобразовать числа в положительные.\n " +
+                                "3.Найти максимальные значения в массивах.");
+                        m = scanner.nextInt();
+                        scanner.nextLine();
+                        switch (m) {
+                            case 0:
+                                System.out.println("Работа программы поиска максимума завершена.");
+                                break;
+                            case 1:
+                                List<String> input1 = new ArrayList<>();
+                                inputString(input1);
+                                String3 function1 = new String3(input1);
+                                function1.transformation();
+                                System.out.println(function1);
+                                break;
+                            case 2:
+                                List<Number> input2 = new ArrayList<>();
+                                inputNumber(input2);
+                                Number3 function2 = new Number3(input2);
+                                function2.transformation();
+                                System.out.println(function2);
+                                break;
+                            case 3:
+                                List<int[]> input3 = new ArrayList<>();
+                                inputIntegerMas(input3);
+                                IntegerMas3 function3 = new IntegerMas3(input3);
+                                function3.transformation();
+                                System.out.println(function3);
+                                break;
+                            default:
+                                System.out.println("Неверный номер действия!");
+                                break;
+                        }
+                    } while (m != 0);
+                }
                 default: {
                     System.out.println("Некорректный номер задачи.");
                     break;
@@ -202,10 +251,10 @@ public class Main {
     }
 
     private static Number parseNumber(String str) {
-        if (Validator.valIsDouble(str)) {
-            return Double.parseDouble(str);
-        } else {
+        if (Validator.valIsInt(str)) {
             return Integer.parseInt(str);
+        } else {
+            return Double.parseDouble(str);
         }
     }
 
@@ -219,6 +268,93 @@ public class Main {
                 return "=";
             default:
                 return " ";
+        }
+    }
+
+    private static void inputString(List<String> input) {
+        int count;
+        while (true) {
+            System.out.print("Введите количество строк: ");
+            String c = scanner.nextLine();
+            if (!Validator.valIsInt(c) || Integer.parseInt(c) <= 0) {
+                System.out.println("Ошибка: количество строк должно быть целым положительным числом.");
+            } else {
+                count = Integer.parseInt(c);
+                for (int i = 0; i < count; i++) {
+                    System.out.print("Введите " + (i + 1) + " строку: ");
+                    String str = scanner.nextLine();
+                    input.add(str);
+                }
+                break;
+            }
+        }
+    }
+
+    public static void inputNumber(List<Number> input) {
+        int count;
+        while (true) {
+            System.out.print("Введите количество чисел: ");
+            String c = scanner.nextLine();
+            if (!Validator.valIsInt(c) || Integer.parseInt(c) <= 0) {
+                System.out.println("Ошибка: количество строк должно быть целым положительным числом.");
+            } else {
+                count = Integer.parseInt(c);
+                for (int i = 0; i < count; i++) {
+                    while (true) {
+                        System.out.print("Введите " + (i + 1) + " число: ");
+                        String str = scanner.nextLine();
+                        if (!Validator.valIsNumber(str)) {
+                            System.out.println("Ошибка: введите корректное число.");
+                        } else {
+                            input.add(parseNumber(str));
+                            break;
+                        }
+                    }
+                }
+                break;
+            }
+        }
+    }
+
+    public static void inputIntegerMas(List<int[]> input) {
+        int count;
+        while (true) {
+            System.out.print("Введите количество массивов: ");
+            String c = scanner.nextLine();
+            if (!Validator.valIsInt(c) || Integer.parseInt(c) <= 0) {
+                System.out.println("Ошибка: количество массивов должно быть целым положительным числом.");
+            } else {
+                count = Integer.parseInt(c);
+                break;
+            }
+        }
+        for (int i = 0; i < count; i++) {
+            System.out.print("Введите " + (i + 1) + " массив. ");
+            int size;
+            while (true) {
+                System.out.print("Введите количество элементов в " + (i + 1) + " массиве: ");
+                String sizeStr = scanner.nextLine();
+                if (!Validator.valIsInt(sizeStr) || Integer.parseInt(sizeStr) <= 0) {
+                    System.out.println("Ошибка: введите корректное количество элементов " + (i + 1) + " массива.");
+                } else {
+                    size = Integer.parseInt(sizeStr);
+                    break;
+                }
+            }
+            int[] mas = new int[size];
+            for (int j = 0; j < size; j++) {
+                while (true) {
+                    System.out.print("Ведите " + (j + 1) + " элемент массива: ");
+                    String str = scanner.nextLine();
+                    if (!Validator.valIsInt(str)) {
+                        System.out.println("Ошибка: введите целое число.");
+                    } else {
+                        mas[j] = Integer.parseInt(str);
+                        break;
+                    }
+                }
+            }
+            input.add(mas);
         }
     }
 }

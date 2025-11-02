@@ -17,11 +17,6 @@ public class String3 implements Function <String, Integer> {
         this.input = input;
     }
 
-    public String3() {
-        this.input = new ArrayList<>();
-        this.result = new ArrayList<>();
-    }
-
     public String3(List<String> input) {
         this.input = input;
         this.result = new ArrayList<>();

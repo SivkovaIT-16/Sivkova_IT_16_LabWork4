@@ -1,7 +1,8 @@
 package ru.sivkova.function;
 
+import ru.sivkova.validator.Validator;
+
 import java.util.List;
-import java.util.ArrayList;
 
 public class String3_1 implements Function<String, Integer> {
     private List<String> input;
@@ -16,12 +17,15 @@ public class String3_1 implements Function<String, Integer> {
     }
 
     public void setInput(List<String> input) {
+        Validator.validateNull(input);
         this.input = input;
+        this.resultFunction = Function3_1.applyFunction(input, this);
     }
 
     public String3_1(List<String> input) {
+        Validator.validateNull(input);
         this.input = input;
-        this.resultFunction = new ArrayList<>();
+        this.resultFunction = Function3_1.applyFunction(input, this);
     }
 
     @Override
@@ -30,14 +34,8 @@ public class String3_1 implements Function<String, Integer> {
                 + "Список длин строк: " + resultFunction;
     }
 
-    public void function() {
-        for (String str : this.input) {
-            this.resultFunction.add(apply(str));
-        }
-    }
-
     @Override
-    public Integer apply(String obj) {
-        return obj.length();
+    public Integer apply(String str) {
+        return str.length();
     }
 }

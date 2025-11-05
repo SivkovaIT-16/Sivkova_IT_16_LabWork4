@@ -1,6 +1,6 @@
 package ru.sivkova.filter;
 
-import java.util.ArrayList;
+import ru.sivkova.validator.*;
 import java.util.List;
 
 public class String3_2 implements Filter<String> {
@@ -16,26 +16,21 @@ public class String3_2 implements Filter<String> {
     }
 
     public void setInput(List<String> input) {
+        Validator.validateNull(input);
         this.input = input;
+        this.resultFilter = Filter3_2.testFilter(input, this);
     }
 
     public String3_2(List<String> input) {
+        Validator.validateNull(input);
         this.input = input;
-        this.resultFilter = new ArrayList<>();
+        this.resultFilter = Filter3_2.testFilter(input, this);
     }
 
     @Override
     public String toString() {
         return "Список входных строк: " + input + "\n"
                 + "Отфильтрованные строки (длина >= 3): " + resultFilter;
-    }
-
-    public void filter() {
-        for (String str : this.input) {
-            if (test(str)) {
-                this.resultFilter.add(str);
-            }
-        }
     }
 
     @Override

@@ -205,21 +205,18 @@ public class Main {
                                 List<String> input1 = new ArrayList<>();
                                 inputString(input1);
                                 String3_1 function1 = new String3_1(input1);
-                                function1.function();
                                 System.out.println(function1);
                                 break;
                             case 2:
                                 List<Number> input2 = new ArrayList<>();
                                 inputNumber(input2);
                                 Number3_1 function2 = new Number3_1(input2);
-                                function2.function();
                                 System.out.println(function2);
                                 break;
                             case 3:
                                 List<int[]> input3 = new ArrayList<>();
                                 inputIntegerMas(input3);
                                 IntegerMas3_1 function3 = new IntegerMas3_1(input3);
-                                function3.function();
                                 System.out.println(function3);
                                 break;
                             default:
@@ -227,6 +224,7 @@ public class Main {
                                 break;
                         }
                     } while (m != 0);
+                    break;
                 }
                 case 5: {
                     int m;
@@ -246,21 +244,18 @@ public class Main {
                                 List<String> input1 = new ArrayList<>();
                                 inputString(input1);
                                 String3_2 filter1 = new String3_2(input1);
-                                filter1.filter();
                                 System.out.println(filter1);
                                 break;
                             case 2:
                                 List<Number> input2 = new ArrayList<>();
                                 inputNumber(input2);
                                 Number3_2 filter2 = new Number3_2(input2);
-                                filter2.filter();
                                 System.out.println(filter2);
                                 break;
                             case 3:
                                 List<int[]> input3 = new ArrayList<>();
                                 inputIntegerMas(input3);
                                 IntegerMas3_2 filter3 = new IntegerMas3_2(input3);
-                                filter3.filter();
                                 System.out.println(filter3);
                                 break;
                             default:
@@ -268,6 +263,7 @@ public class Main {
                                 break;
                         }
                     } while (m != 0);
+                    break;
                 }
                 case 6: {
                     int m;
@@ -287,21 +283,18 @@ public class Main {
                                 List<String> input1 = new ArrayList<>();
                                 inputString(input1);
                                 String3_3 reduction1 = new String3_3(input1);
-                                reduction1.reduction();
                                 System.out.println(reduction1);
                                 break;
                             case 2:
                                 List<Number> input2 = new ArrayList<>();
                                 inputNumber(input2);
                                 Number3_3 reduction2 = new Number3_3(input2);
-                                reduction2.reduction();
                                 System.out.println(reduction2);
                                 break;
                             case 3:
                                 List<int[]> input3 = new ArrayList<>();
                                 inputIntegerMas(input3);
                                 IntegerMas3_3 reduction3 = new IntegerMas3_3(input3);
-                                reduction3.reduction();
                                 System.out.println(reduction3);
                                 break;
                             default:
@@ -309,6 +302,7 @@ public class Main {
                                 break;
                         }
                     } while (m != 0);
+                    break;
                 }
                 default: {
                     System.out.println("Некорректный номер задачи.");
@@ -365,8 +359,8 @@ public class Main {
         while (true) {
             System.out.print("Введите количество строк: ");
             String c = scanner.nextLine();
-            if (!Validator.valIsInt(c) || Integer.parseInt(c) <= 0) {
-                System.out.println("Ошибка: количество строк должно быть целым положительным числом.");
+            if (!Validator.valIsInt(c) || Integer.parseInt(c) < 0) {
+                System.out.println("Ошибка: количество строк должно быть целым числом.");
             } else {
                 count = Integer.parseInt(c);
                 for (int i = 0; i < count; i++) {
@@ -384,8 +378,8 @@ public class Main {
         while (true) {
             System.out.print("Введите количество чисел: ");
             String c = scanner.nextLine();
-            if (!Validator.valIsInt(c) || Integer.parseInt(c) <= 0) {
-                System.out.println("Ошибка: количество строк должно быть целым положительным числом.");
+            if (!Validator.valIsInt(c) || Integer.parseInt(c) < 0) {
+                System.out.println("Ошибка: количество строк должно быть целым числом.");
             } else {
                 count = Integer.parseInt(c);
                 for (int i = 0; i < count; i++) {
@@ -410,8 +404,8 @@ public class Main {
         while (true) {
             System.out.print("Введите количество массивов: ");
             String c = scanner.nextLine();
-            if (!Validator.valIsInt(c) || Integer.parseInt(c) <= 0) {
-                System.out.println("Ошибка: количество массивов должно быть целым положительным числом.");
+            if (!Validator.valIsInt(c) || Integer.parseInt(c) < 0) {
+                System.out.println("Ошибка: количество массивов должно быть целым числом.");
             } else {
                 count = Integer.parseInt(c);
                 break;

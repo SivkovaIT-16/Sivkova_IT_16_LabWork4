@@ -1,7 +1,8 @@
 package ru.sivkova.filter;
 
+import ru.sivkova.validator.Validator;
+
 import java.util.List;
-import java.util.ArrayList;
 
 public class IntegerMas3_2 implements Filter<int[]> {
     private List<int[]> input;
@@ -16,12 +17,15 @@ public class IntegerMas3_2 implements Filter<int[]> {
     }
 
     public void setInput(List<int[]> input) {
+        Validator.validateNull(input);
         this.input = input;
+        this.resultFilter = Filter3_2.testFilter(input, this);
     }
 
     public IntegerMas3_2(List<int[]> input) {
+        Validator.validateNull(input);
         this.input = input;
-        this.resultFilter = new ArrayList<>();
+        this.resultFilter = Filter3_2.testFilter(input, this);
     }
 
     @Override
@@ -47,14 +51,6 @@ public class IntegerMas3_2 implements Filter<int[]> {
             k++;
         }
         return str;
-    }
-
-    public void filter() {
-        for (int[] mas : this.input) {
-            if (test(mas)) {
-                this.resultFilter.add(mas);
-            }
-        }
     }
 
     @Override

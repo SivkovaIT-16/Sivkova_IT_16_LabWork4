@@ -1,8 +1,11 @@
 package ru.sivkova.reduction;
 
+import ru.sivkova.function.*;
+import ru.sivkova.validator.Validator;
+
 import java.util.List;
 
-public class IntegerMas3_3 implements Reduction<Integer> {
+public class IntegerMas3_3 {
     private List<int[]> input;
     private Integer resultReduction;
 
@@ -15,12 +18,15 @@ public class IntegerMas3_3 implements Reduction<Integer> {
     }
 
     public void setInput(List<int[]> input) {
+        Validator.validateNull(input);
         this.input = input;
+        this.resultReduction = calculateElements();
     }
 
     public IntegerMas3_3(List<int[]> input) {
+        Validator.validateNull(input);
         this.input = input;
-        this.resultReduction = 0;
+        this.resultReduction = calculateElements();
     }
 
     @Override
@@ -39,14 +45,19 @@ public class IntegerMas3_3 implements Reduction<Integer> {
         return str;
     }
 
-    public void reduction() {
-        for (int[] mas : this.input) {
-            this.resultReduction = reduc(this.resultReduction, mas.length);
-        }
-    }
+    private Integer calculateElements() {
+        List<Integer> sizes = Function3_1.applyFunction(input, new Function<int[], Integer>() {
+            @Override
+            public Integer apply(int[] array) {
+                return array.length;
+            }
+        });
 
-    @Override
-    public  Integer reduc(Integer count, Integer objSize) {
-        return count + objSize;
+        return Reduction3_3.reducReduction(sizes, new Reduction<Integer>() {
+            @Override
+            public Integer reduc(Integer res, Integer obj) {
+                return res + obj;
+            }
+        }, 0);
     }
 }

@@ -17,12 +17,15 @@ public class Number3_3 implements Reduction<Number> {
     }
 
     public void setInput(List<Number> input) {
+        Validator.validateNull(input);
         this.input = input;
+        this.resultReduction = Reduction3_3.reducReduction(input, this, 0);
     }
 
     public Number3_3(List<Number> input) {
+        Validator.validateNull(input);
         this.input = input;
-        this.resultReduction = 0;
+        this.resultReduction = Reduction3_3.reducReduction(input, this, 0);
     }
 
     @Override
@@ -31,11 +34,6 @@ public class Number3_3 implements Reduction<Number> {
                 + "Сумма всех значений исходного списка: " + resultReduction;
     }
 
-    public void reduction() {
-        for (Number num : this.input) {
-            this.resultReduction = reduc(this.resultReduction,num);
-        }
-    }
 
     @Override
     public Number reduc(Number sum, Number obj) {

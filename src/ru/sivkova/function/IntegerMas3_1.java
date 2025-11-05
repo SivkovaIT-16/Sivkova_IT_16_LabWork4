@@ -1,7 +1,8 @@
 package ru.sivkova.function;
 
+import ru.sivkova.validator.Validator;
+
 import java.util.List;
-import java.util.ArrayList;
 
 public class IntegerMas3_1 implements Function<int[], Integer> {
     private List<int[]> input;
@@ -16,12 +17,15 @@ public class IntegerMas3_1 implements Function<int[], Integer> {
     }
 
     public void setInput(List<int[]> input) {
+        Validator.validateNull(input);
         this.input = input;
+        this.resultFunction = Function3_1.applyFunction(input, this);
     }
 
     public IntegerMas3_1(List<int[]> input) {
+        Validator.validateNull(input);
         this.input = input;
-        this.resultFunction = new ArrayList<>();
+        this.resultFunction = Function3_1.applyFunction(input, this);
     }
 
     @Override
@@ -38,12 +42,6 @@ public class IntegerMas3_1 implements Function<int[], Integer> {
         }
         str += "Максимальные значения каждого массива: " + resultFunction;
         return str;
-    }
-
-    public void function() {
-        for (int[] mas : this.input) {
-            this.resultFunction.add(apply(mas));
-        }
     }
 
     @Override

@@ -1,7 +1,8 @@
 package ru.sivkova.filter;
 
+import ru.sivkova.validator.Validator;
+
 import java.util.List;
-import java.util.ArrayList;
 
 public class Number3_2 implements Filter<Number> {
     private List<Number> input;
@@ -16,25 +17,21 @@ public class Number3_2 implements Filter<Number> {
     }
 
     public void setInput(List<Number> input) {
+        Validator.validateNull(input);
         this.input = input;
+        this.resultFilter = Filter3_2.testFilter(input, this);
     }
 
     public Number3_2(List<Number> input) {
+        Validator.validateNull(input);
         this.input = input;
-        this.resultFilter = new ArrayList<>();
+        this.resultFilter = Filter3_2.testFilter(input, this);
     }
 
     @Override
     public String toString() {
         return "Список исходных чисел: " + input + "\n"
                 + "Отфильтрованные числа (положительные): " + resultFilter;
-    }
-    public void filter() {
-        for (Number num : this.input) {
-            if (test(num)) {
-                this.resultFilter.add(num);
-            }
-        }
     }
 
     @Override

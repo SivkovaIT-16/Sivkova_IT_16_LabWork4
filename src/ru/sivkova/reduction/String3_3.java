@@ -1,5 +1,7 @@
 package ru.sivkova.reduction;
 
+import ru.sivkova.validator.Validator;
+
 import java.util.List;
 
 public class String3_3 implements Reduction<String> {
@@ -15,24 +17,21 @@ public class String3_3 implements Reduction<String> {
     }
 
     public void setInput(List<String> input) {
+        Validator.validateNull(input);
         this.input = input;
+        this.resultReduction = Reduction3_3.reducReduction(input, this, "");
     }
 
     public String3_3(List<String> input) {
+        Validator.validateNull(input);
         this.input = input;
-        this.resultReduction = "";
+        this.resultReduction = Reduction3_3.reducReduction(input, this, "");
     }
 
     @Override
     public String toString() {
         return "Список входных строк: " + input + "\n"
                 + "Сформированная строка: " + resultReduction;
-    }
-
-    public void reduction() {
-        for (String str : this.input) {
-            this.resultReduction = reduc(this.resultReduction, str);
-        }
     }
 
     @Override

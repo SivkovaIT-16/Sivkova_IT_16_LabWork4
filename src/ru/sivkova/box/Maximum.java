@@ -1,7 +1,9 @@
+package ru.sivkova.box;
+
 import java.util.List;
 
 public class Maximum {
-    public static double findMax(List<GeneralizedBox <? extends Number>> boxes) {
+    public static double findMax(List<GeneralizedBox<? extends Number>> boxes) {
         if (boxes == null || boxes.isEmpty()) {
             throw new IllegalArgumentException("Массив коробок пустой.");
         }

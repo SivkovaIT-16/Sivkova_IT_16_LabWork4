@@ -1,4 +1,5 @@
 package ru.sivkova.function;
+import ru.sivkova.validator.*;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -28,8 +29,8 @@ public class Number3_1 implements Function<Number, Number> {
 
     @Override
     public String toString() {
-        return "Список исходных чисел: \n" + input + "\n"
-                + "Список положительных чисел: \n" + resultFunction;
+        return "Список исходных чисел: " + input + "\n"
+                + "Список положительных чисел: " + resultFunction;
     }
 
     public void function() {

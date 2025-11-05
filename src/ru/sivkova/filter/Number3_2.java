@@ -26,8 +26,8 @@ public class Number3_2 implements Filter<Number> {
 
     @Override
     public String toString() {
-        return "Список исходных чисел: \n" + input + "\n"
-                + "Отфильтрованные числа (положительные): \n" + resultFilter;
+        return "Список исходных чисел: " + input + "\n"
+                + "Отфильтрованные числа (положительные): " + resultFilter;
     }
     public void filter() {
         for (Number num : this.input) {

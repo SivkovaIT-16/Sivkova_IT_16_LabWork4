@@ -1,3 +1,5 @@
+package ru.sivkova.validator;
+
 public class Validator {
     public static boolean valIsInt(String value) {
         if (value == null || value.trim().isEmpty()) {

@@ -19,11 +19,6 @@ public class IntegerMas3_2 implements Filter<int[]> {
         this.input = input;
     }
 
-    public IntegerMas3_2() {
-        this.input = new ArrayList<>();
-        this.resultFilter = new ArrayList<>();
-    }
-
     public IntegerMas3_2(List<int[]> input) {
         this.input = input;
         this.resultFilter = new ArrayList<>();

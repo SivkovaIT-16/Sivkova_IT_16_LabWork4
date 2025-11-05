@@ -19,11 +19,6 @@ public class IntegerMas3_1 implements Function<int[], Integer> {
         this.input = input;
     }
 
-    public IntegerMas3_1() {
-        this.input = new ArrayList<>();
-        this.resultFunction = new ArrayList<>();
-    }
-
     public IntegerMas3_1(List<int[]> input) {
         this.input = input;
         this.resultFunction = new ArrayList<>();

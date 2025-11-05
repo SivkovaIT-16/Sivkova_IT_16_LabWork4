@@ -1,3 +1,5 @@
+package ru.sivkova.box;
+
 public class GeneralizedBox<T> {
     //Поля
     private T obj;

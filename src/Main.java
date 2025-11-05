@@ -1,6 +1,10 @@
+import ru.sivkova.box.*;
 import ru.sivkova.comparable.*;
 import ru.sivkova.filter.*;
 import ru.sivkova.function.*;
+import ru.sivkova.reduction.*;
+import ru.sivkova.validator.*;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -241,23 +245,64 @@ public class Main {
                             case 1:
                                 List<String> input1 = new ArrayList<>();
                                 inputString(input1);
-                                String3_2 function1 = new String3_2(input1);
-                                function1.filter();
-                                System.out.println(function1);
+                                String3_2 filter1 = new String3_2(input1);
+                                filter1.filter();
+                                System.out.println(filter1);
                                 break;
                             case 2:
                                 List<Number> input2 = new ArrayList<>();
                                 inputNumber(input2);
-                                Number3_2 function2 = new Number3_2(input2);
-                                function2.filter();
-                                System.out.println(function2);
+                                Number3_2 filter2 = new Number3_2(input2);
+                                filter2.filter();
+                                System.out.println(filter2);
                                 break;
                             case 3:
                                 List<int[]> input3 = new ArrayList<>();
                                 inputIntegerMas(input3);
-                                IntegerMas3_2 function3 = new IntegerMas3_2(input3);
-                                function3.filter();
-                                System.out.println(function3);
+                                IntegerMas3_2 filter3 = new IntegerMas3_2(input3);
+                                filter3.filter();
+                                System.out.println(filter3);
+                                break;
+                            default:
+                                System.out.println("Неверный номер действия!");
+                                break;
+                        }
+                    } while (m != 0);
+                }
+                case 6: {
+                    int m;
+                    do {
+                        System.out.println("Введите номер дейсвия:\n " +
+                                "0.Завершить программу поиска максимума.\n " +
+                                "1.Сократить строки.\n " +
+                                "2.Сократить числа.\n " +
+                                "3.Сократить массивы.");
+                        m = scanner.nextInt();
+                        scanner.nextLine();
+                        switch (m) {
+                            case 0:
+                                System.out.println("Работа программы поиска максимума завершена.");
+                                break;
+                            case 1:
+                                List<String> input1 = new ArrayList<>();
+                                inputString(input1);
+                                String3_3 reduction1 = new String3_3(input1);
+                                reduction1.reduction();
+                                System.out.println(reduction1);
+                                break;
+                            case 2:
+                                List<Number> input2 = new ArrayList<>();
+                                inputNumber(input2);
+                                Number3_3 reduction2 = new Number3_3(input2);
+                                reduction2.reduction();
+                                System.out.println(reduction2);
+                                break;
+                            case 3:
+                                List<int[]> input3 = new ArrayList<>();
+                                inputIntegerMas(input3);
+                                IntegerMas3_3 reduction3 = new IntegerMas3_3(input3);
+                                reduction3.reduction();
+                                System.out.println(reduction3);
                                 break;
                             default:
                                 System.out.println("Неверный номер действия!");

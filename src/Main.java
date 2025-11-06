@@ -3,6 +3,7 @@ import ru.sivkova.comparable.*;
 import ru.sivkova.filter.*;
 import ru.sivkova.function.*;
 import ru.sivkova.reduction.*;
+import ru.sivkova.collecting.*;
 import ru.sivkova.validator.*;
 
 import java.util.List;
@@ -304,6 +305,45 @@ public class Main {
                     } while (m != 0);
                     break;
                 }
+                case 7: {
+                    int m;
+                    do {
+                        System.out.println("Введите номер дейсвия:\n " +
+                                "0.Завершить программу поиска максимума.\n " +
+                                "1.Коллекционировать строки по длине.\n " +
+                                "2.Коллекционировать числа.\n " +
+                                "3.Коллекционировать уникальные строки.");
+                        m = scanner.nextInt();
+                        scanner.nextLine();
+                        switch (m) {
+                            case 0:
+                                System.out.println("Работа программы поиска максимума завершена.");
+                                break;
+                            case 1:
+                                List<String> input1 = new ArrayList<>();
+                                inputString(input1);
+                                StringSize collecting1 = new StringSize(input1);
+                                System.out.println(collecting1);
+                                break;
+                            case 2:
+                                List<Number> input2 = new ArrayList<>();
+                                inputNumber(input2);
+                                Number3_4 collecting2 = new Number3_4(input2);
+                                System.out.println(collecting2);
+                                break;
+                            case 3:
+                                List<String> input3 = new ArrayList<>();
+                                inputString(input3);
+                                StringUnique collecting3 = new StringUnique(input3);
+                                System.out.println(collecting3);
+                                break;
+                            default:
+                                System.out.println("Неверный номер действия!");
+                                break;
+                        }
+                    } while (m != 0);
+                    break;
+                    }
                 default: {
                     System.out.println("Некорректный номер задачи.");
                     break;

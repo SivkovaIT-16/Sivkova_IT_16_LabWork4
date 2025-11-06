@@ -1,7 +1,6 @@
 package ru.sivkova.function;
 
 import ru.sivkova.validator.Validator;
-
 import java.util.List;
 
 public class IntegerMas3_1 implements Function<int[], Integer> {

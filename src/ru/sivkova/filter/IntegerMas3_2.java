@@ -1,7 +1,6 @@
 package ru.sivkova.filter;
 
 import ru.sivkova.validator.Validator;
-
 import java.util.List;
 
 public class IntegerMas3_2 implements Filter<int[]> {

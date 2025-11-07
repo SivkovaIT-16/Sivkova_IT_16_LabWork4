@@ -36,7 +36,7 @@ public class Main {
                     System.out.println("Создана коробка box1 для целых чисел.");
                     int m;
                     do {
-                        System.out.println("Введите номер дейсвия:\n " +
+                        System.out.println("Введите номер действия:\n " +
                                 "0.Завершить действия с коробкой.\n " +
                                 "1.Положить объект в коробку.\n " +
                                 "2.Взять объект из коробки.\n " +
@@ -74,7 +74,7 @@ public class Main {
                     //1.3
                     int m;
                     do {
-                        System.out.println("Введите номер дейсвия:\n " +
+                        System.out.println("Введите номер действия:\n " +
                                 "0.Завершить программу для сравнения.\n " +
                                 "1.Сравнить два числа.\n " +
                                 "2.Сравнить две строки.");
@@ -131,7 +131,7 @@ public class Main {
                     List<GeneralizedBox<? extends Number>> boxes = new ArrayList<>();
                     int m;
                     do {
-                        System.out.println("Введите номер дейсвия:\n " +
+                        System.out.println("Введите номер действия:\n " +
                                 "0.Завершить программу поиска максимума.\n " +
                                 "1.Просмотр текущих коробок.\n " +
                                 "2.Создать коробку с числом.\n " +
@@ -191,8 +191,8 @@ public class Main {
                 case 4: {
                     int m;
                     do {
-                        System.out.println("Введите номер дейсвия:\n " +
-                                "0.Завершить программу поиска максимума.\n " +
+                        System.out.println("Введите номер действия:\n " +
+                                "0.Завершить работу программы \"Функция\".\n " +
                                 "1.Найти длины строк.\n " +
                                 "2.Преобразовать числа в положительные.\n " +
                                 "3.Найти максимальные значения в массивах.");
@@ -200,7 +200,7 @@ public class Main {
                         scanner.nextLine();
                         switch (m) {
                             case 0:
-                                System.out.println("Работа программы поиска максимума завершена.");
+                                System.out.println("Работа программы \"Функция\" завершена.");
                                 break;
                             case 1:
                                 List<String> input1 = new ArrayList<>();
@@ -230,8 +230,8 @@ public class Main {
                 case 5: {
                     int m;
                     do {
-                        System.out.println("Введите номер дейсвия:\n " +
-                                "0.Завершить программу поиска максимума.\n " +
+                        System.out.println("Введите номер действия:\n " +
+                                "0.Завершить работу программы \"Фильтр\".\n " +
                                 "1.Отфильтровать строки.\n " +
                                 "2.Отфильтровать числа.\n " +
                                 "3.Отфильтровать массивы.");
@@ -239,7 +239,7 @@ public class Main {
                         scanner.nextLine();
                         switch (m) {
                             case 0:
-                                System.out.println("Работа программы поиска максимума завершена.");
+                                System.out.println("Работа программы \"Фильтр\" завершена.");
                                 break;
                             case 1:
                                 List<String> input1 = new ArrayList<>();
@@ -269,8 +269,8 @@ public class Main {
                 case 6: {
                     int m;
                     do {
-                        System.out.println("Введите номер дейсвия:\n " +
-                                "0.Завершить программу поиска максимума.\n " +
+                        System.out.println("Введите номер действия:\n " +
+                                "0.Завершить работу программы \"Сокращение\".\n " +
                                 "1.Сократить строки.\n " +
                                 "2.Сократить числа.\n " +
                                 "3.Сократить массивы.");
@@ -278,7 +278,7 @@ public class Main {
                         scanner.nextLine();
                         switch (m) {
                             case 0:
-                                System.out.println("Работа программы поиска максимума завершена.");
+                                System.out.println("Работа программы \"Сокращение\" завершена.");
                                 break;
                             case 1:
                                 List<String> input1 = new ArrayList<>();
@@ -308,8 +308,8 @@ public class Main {
                 case 7: {
                     int m;
                     do {
-                        System.out.println("Введите номер дейсвия:\n " +
-                                "0.Завершить программу поиска максимума.\n " +
+                        System.out.println("Введите номер действия:\n " +
+                                "0.Завершить работу программы \"Коллекционирование\".\n " +
                                 "1.Коллекционировать строки по длине.\n " +
                                 "2.Коллекционировать числа.\n " +
                                 "3.Коллекционировать уникальные строки.");
@@ -317,7 +317,7 @@ public class Main {
                         scanner.nextLine();
                         switch (m) {
                             case 0:
-                                System.out.println("Работа программы поиска максимума завершена.");
+                                System.out.println("Работа программы \"Коллекционирование\" завершена.");
                                 break;
                             case 1:
                                 List<String> input1 = new ArrayList<>();

@@ -2,7 +2,6 @@ package ru.sivkova.reduction;
 
 import ru.sivkova.function.*;
 import ru.sivkova.validator.Validator;
-
 import java.util.List;
 
 public class IntegerMas3_3 {

@@ -1,7 +1,6 @@
 package ru.sivkova.reduction;
 
 import ru.sivkova.validator.Validator;
-
 import java.util.List;
 
 public class Number3_3 implements Reduction<Number> {
@@ -33,7 +32,6 @@ public class Number3_3 implements Reduction<Number> {
         return "Список исходных чисел: " + input + "\n"
                 + "Сумма всех значений исходного списка: " + resultReduction;
     }
-
 
     @Override
     public Number reduc(Number sum, Number obj) {

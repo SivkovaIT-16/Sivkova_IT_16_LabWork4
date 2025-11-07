@@ -1,7 +1,6 @@
 package ru.sivkova.reduction;
 
 import ru.sivkova.validator.Validator;
-
 import java.util.List;
 
 public class String3_3 implements Reduction<String> {

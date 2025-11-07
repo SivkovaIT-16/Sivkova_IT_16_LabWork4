@@ -1,7 +1,6 @@
 package ru.sivkova.collecting;
 
 import ru.sivkova.validator.Validator;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
